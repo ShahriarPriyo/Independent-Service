@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Kabab",
+    "price": "300",
+    "description": "Special smoked flavor and juicy chicken kabab with gralic sauce.",
+    "img": "https://i.ibb.co/1Z2LSdR/Kabab.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Pancake",
+    "price": "100",
+    "description": "Soft pancake covered with honey",
+    "img": "https://i.ibb.co/CVjYFvB/Pancake.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Red Velvet",
+    "price": "150",
+    "description": "Red velvet coated with vanilla and chocolate cream.",
+    "img": "https://i.ibb.co/sb9yxhY/Red-Velvet.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Pizza",
+    "price": "180",
+    "description": "Cheese stuffed chicken pizza",
+    "img": "https://i.ibb.co/zV6pWY3/Pizza.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Burger",
+    "price": "100",
+    "description": "Naga Chicken Burger",
+    "img": "https://i.ibb.co/Y3Ljqm0/Burger.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Spicy Spaghetti",
+    "price": "70",
+    "description": "Italian style spaghetti with mushroom and white sauce",
+    "img": "https://i.ibb.co/n1Q2KLM/Spaghetti.jpg"
+  }
+]
