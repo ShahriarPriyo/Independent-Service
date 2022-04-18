@@ -68,7 +68,7 @@ const Footer = () => {
                                     <ul className="footer-nav-links last w-list-unstyled">
                                         <li className="footer-nav-link-item">
                                             <p className="paragraph-small footer-address">
-                                                Chittagong, Bangladesh
+                                                Dhaka, Bangladesh
                                             </p>
                                         </li>
                                         <li className="footer-nav-link-item">
@@ -105,10 +105,10 @@ const Footer = () => {
 
                         >
                             <div className="paragraph-small small-print">
-                                Copyright &nbsp;© Rahat | Designed by Minions Rahat
+                                Copyright &nbsp;© priyo | Designed by Shahriar Priyo
 
                             </div>
-                            <div className="w-layout-grid footer-social-media-grid">
+                            {/* <div className="w-layout-grid footer-social-media-grid">
                                 <a
                                     href="https://www.facebook.com/"
 
@@ -143,7 +143,7 @@ const Footer = () => {
                                     className="footer-social-media-link icon-18px"
                                 ></a
                                 >
-                            </div>
+                            </div> */}
                         </div>
                     </div>
             </footer>
