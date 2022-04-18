@@ -35,8 +35,8 @@ const Header = () => {
             <div className="container-default w-container">
                 <div className="header-contact-wrapper">
                     <a href="tel:(284)587-7800" className="header-contact-link"
-                    >01878517664</a
-                    ><a href="/" className="header-contact-link last">contact.com</a>
+                    >019xxxxxxxxx</a
+                    ><a href="/" className="header-contact-link last">contact@shahriar priyo.com</a>
                 </div>
                 <div className="divider header-divider"></div>
                 <div className="header-wrapper">
