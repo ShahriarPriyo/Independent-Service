@@ -1,17 +1,17 @@
-import React from 'react';
-import About from '../About/About';
-import Banner from '../Banner/Banner';
-import Feature from '../Feature/Feature';
-import ServiceList from '../ServiceList/ServiceList'
-
-
+import React from "react";
+import Services from "../Services/Services";
+import Banner from "./Banner/Banner";
+import HotelBookingServices from "../Services/HotelBookingServices/HotelBookingServices";
 const Home = () => {
-    return (
-        <>
-            <Banner></Banner>
-            <ServiceList></ServiceList>
-        </>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <Services></Services>
+      <div className="container">
+        <HotelBookingServices></HotelBookingServices>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
