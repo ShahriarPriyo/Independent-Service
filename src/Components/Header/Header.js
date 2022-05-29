@@ -1,120 +1,72 @@
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { NavLink, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import { signOut } from 'firebase/auth';
-import './Header.css'
+import React from "react";
+import {
+  Container,
+  Navbar,
+  NavDropdown,
+  Nav,
+  Button,
+  Form,
+  FormControl,
+  DropdownButton,
+  Dropdown
+} from "react-bootstrap";
+import "./styles/header.css";
+import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 const Header = () => {
-    const navigate = useNavigate();
-    const goSingupPage = () => {
-        navigate('/signup')
-    }
-    const goLoginPage = () => {
-        navigate('/login')
-    }
-    const logout = () => {
-        signOut(auth);
-    }
-    const [user, loading, error] = useAuthState(auth)
+  const [user, loading, error] = useAuthState(auth);
+  return (
+    <Navbar bg="dark" expand="lg" className="py-5">
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <span className="brand-text">go Horizon</span>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto my-5 my-lg-0" style={{ maxHeight: "300px" }}>
+            <Nav.Link className="mx-4" as={Link} to="/home">
+              <span className="menu-item">Home</span>
+            </Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/services">
+              <span className="menu-item">Services</span>
+            </Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/about">
+              <span className="menu-item">About Us</span>
+            </Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/spots">
+              <span className="menu-item">Spots</span>
+            </Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/blogs">
+              <span className="menu-item">Blogs</span>
+            </Nav.Link>
+            <Nav.Link className="mx-4" as={Link} to="/contact">
+              <span className="menu-item">Contact</span>
+            </Nav.Link>
+          </Nav>
+          {
+            user ? <div className="account-container">
+              <DropdownButton className="rounded-lg" variant="secondary" id="dropdown-basic-button" title={<AccountCircleIcon />}>
+                <Dropdown.Item as={Link} to="">{user?.displayName}</Dropdown.Item>
+                <Dropdown.Item as={Link} to="">Profile Setting</Dropdown.Item>
+                <Dropdown.Item as={Link} to="">Notification</Dropdown.Item>
+                <Dropdown.Item as={Link} to="">My Trips</Dropdown.Item>
+                <Dropdown.Item onClick={() => signOut(auth)}>LogOut</Dropdown.Item>
+              </DropdownButton>
+            </div> : <Nav.Link className="mx-4" as={Link} to="/login">
+              <span className="menu-item">Login</span>
+            </Nav.Link>
+          }
+        </Navbar.Collapse>
 
 
-    if (loading) {
-        return 'Loading'
-    }
 
-    return (
-        <div className="header w-nav"
-            data-collapse="medium"
-            data-animation="over-right"
-            data-duration="400"
-            data-w-id="58db7844-5919-d71b-dd74-2323ed8dffe9"
-            data-easing="ease"
-            data-easing2="ease"
-            role="banner">
-
-            <div className="container-default w-container">
-                <div className="header-contact-wrapper">
-                    <a href="tel:(284)587-7800" className="header-contact-link"
-                    >019xxxxxxxxx</a
-                    ><a href="/" className="header-contact-link last">contact@shahriar priyo.com</a>
-                </div>
-                <div className="divider header-divider"></div>
-                <div className="header-wrapper">
-                    <div className="split-content header-right">
-                        <a
-                            href="/"
-                            className="brand w-nav-brand w--current"
-                            aria-label="home">
-                            <img
-                                alt=''
-                                src="https://i.ibb.co/Y3Ljqm0/Burger.jpg"
-                                className="header-logo"
-                            />
-                        </a>
-                        <nav role="navigation" className="nav-menu w-nav-menu">
-                            <ul className="header-navigation">
-                                <li className="nav-item-wrapper">
-                                    <NavLink to="/" className="nav-link ">Home</NavLink>
-                                </li>
-
-                                <li className="nav-item-wrapper">
-                                    <NavLink to="/about" className="nav-link ">About</NavLink>
-                                </li>
-                                <li className="nav-item-wrapper">
-                                    <NavLink to="/services" className="nav-link ">Services</NavLink>
-                                </li>
-                                <li className="nav-item-wrapper">
-                                    <NavLink to="/blogs" className="nav-link ">Blogs</NavLink>
-                                </li>
-                                <li className="nav-item-wrapper header-button-mobile">
-
-
-                                    {
-                                        user ? <>
-                                            <button onClick={logout} className="button-primary bg-secondary-1 header-button-mobile w-button mb-1">Sign Out</button>
-                                        </> : <>
-                                            <button onClick={goSingupPage} className="button-primary bg-secondary-1 header-button-mobile w-button mb-1">Sign Up</button>
-                                            <button onClick={goLoginPage} className="button-primary bg-secondary-1 header-button-mobile w-button ">Log In</button>
-                                        </>
-                                    }
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div className="split-content header-left">
-
-                        {
-                            user ? <>
-                                <button onClick={logout} className="button-primary bg-secondary-1 header-button w-button mb-1">Sign Out</button>
-                            </> : <>
-                                <button onClick={goSingupPage} className="button-primary bg-secondary-1 header-button w-button me-1">Sign Up</button>
-                                <button onClick={goLoginPage} className="button-primary bg-secondary-1 header-button w-button ">Log In</button>
-                            </>
-                        }
-
-                        <div
-                            className="menu-button w-nav-button"
-                            aria-label="menu"
-                            role="button"
-                            tabIndex="0"
-                            aria-controls="w-nav-overlay-0"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                        >
-                            <div className="menu-button-icon-wrapper">
-                                <div className="menu-button-icon">
-                                    <div className="menu-line-top"></div>
-                                    <div className="menu-line-middle"></div>
-                                    <div className="menu-line-bottom"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
-        </div>
-    );
+      </Container>
+    </Navbar>
+  );
 };
 
 export default Header;
